@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "youtube-assistant"
+version = "2.1.0"
+description = "一个功能强大的模块化工具，可以从YouTube视频中提取音频，转录为文本，生成字幕，翻译字幕，并使用AI生成高质量文章摘要"
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+authors = [
+    {name = "cacity", email = "gf7823332@gmail.com"},
+]
+keywords = [
+    "youtube",
+    "transcription",
+    "subtitles",
+    "summarization",
+    "ai",
+    "whisper",
+    "openai",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Text Processing",
+]
+dependencies = [
+    "yt-dlp",
+    "openai-whisper",
+    "requests",
+    "python-dotenv",
+    "torch",
+    "ffmpeg-python",
+    "tqdm",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/cacity/youtube-assistant"
+"Bug Tracker" = "https://github.com/cacity/youtube-assistant/issues"
+
+[project.scripts]
+youtube-assistant = "youtube_assistant.main:main_cli"
+
+

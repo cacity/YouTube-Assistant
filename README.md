@@ -24,17 +24,29 @@
 
 ## 🚀 快速开始
 
-### 安装依赖
+### 安装方法
+
+#### 方法一：通过 pip 安装（推荐）
 
 ```bash
-# 使用 pip 安装所有依赖
-# 这将安装 yt-dlp、whisper、torch 等必要库
+# 从PyPI安装最新版本
+pip install youtube-assistant
+```
+
+#### 方法二：从源码安装
+
+```bash
+# 克隆仓库
+git clone https://github.com/cacity/youtube-assistant.git
+cd youtube-assistant
+
+# 安装依赖
 pip install -r requirements.txt
 ```
 
 ### 环境变量设置
 
-创建一个`.env`文件，包含以下内容：
+在您的用户主目录下创建`.youtube_assistant`目录，并在其中创建一个`.env`文件，包含以下内容：
 
 ```
 # API密钥配置（至少需要配置一个）
@@ -63,64 +75,67 @@ OPENAI_COMPOSITE_API_URL=https://api.openai.com/v1
 #### 处理单个YouTube视频
 
 ```bash
-# 下载音频并生成字幕和摘要
+# 如果通过pip安装
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id
+
+# 如果从源码运行
 python main.py --youtube https://www.youtube.com/watch?v=your_video_id
 
 # 下载完整视频并嵌入字幕
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --download-video
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --download-video
 ```
 
 #### 处理本地视频文件
 
 ```bash
 # 处理本地视频文件，生成字幕和摘要
-python main.py --video path/to/your/video.mp4
+youtube-assistant --video path/to/your/video.mp4
 
 # 使用更大的模型提高转录精度
-python main.py --video path/to/your/video.mp4 --model-size medium
+youtube-assistant --video path/to/your/video.mp4 --model-size medium
 ```
 
 #### 处理本地音频文件
 
 ```bash
 # 处理本地音频文件，生成字幕和摘要
-python main.py --audio path/to/your/audio.mp3
+youtube-assistant --audio path/to/your/audio.mp3
 
 # 不生成字幕，只生成摘要
-python main.py --audio path/to/your/audio.mp3 --no-subtitles
+youtube-assistant --audio path/to/your/audio.mp3 --no-subtitles
 ```
 
 #### 批量处理多个YouTube视频
 
 ```bash
 # 从文件读取URL列表（每行一个URL）
-python main.py --batch urls.txt
+youtube-assistant --batch urls.txt
 
 # 批量下载完整视频并嵌入字幕
-python main.py --batch urls.txt --download-video
+youtube-assistant --batch urls.txt --download-video
 ```
 
 #### 高级选项
 
 ```bash
 # 使用特定的AI模型生成摘要
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --model "claude-3-sonnet-20240229"
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --model "claude-3-sonnet-20240229"
 
 # 指定API密钥和基础URL
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --api-key "your_api_key" --base-url "https://api.example.com/v1"
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --api-key "your_api_key" --base-url "https://api.example.com/v1"
 
 # 不翻译字幕（仅生成原语言字幕）
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --no-translation
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --no-translation
 
 # 不将字幕嵌入到视频中
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --download-video --no-embed
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --download-video --no-embed
 ```
 
 #### 使用自定义模板
 
 ```bash
 # 使用指定模板处理视频
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --template news
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --template news
 ```
 
 ## 📋 参数说明
@@ -205,13 +220,13 @@ python main.py --youtube https://www.youtube.com/watch?v=your_video_id --templat
 
 ```bash
 # 使用默认模板
-python youtube_transcriber.py --youtube https://www.youtube.com/watch?v=your_video_id
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id
 
 # 使用作家写作模板
-python youtube_transcriber.py --youtube https://www.youtube.com/watch?v=your_video_id --template 作家写作
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --template 作家写作
 
 # 使用自定义模板
-python youtube_transcriber.py --youtube https://www.youtube.com/watch?v=your_video_id --template your_template_name
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --template your_template_name
 ```
 
 ### 创建自定义模板
@@ -247,20 +262,20 @@ python youtube_transcriber.py --youtube https://www.youtube.com/watch?v=your_vid
 ### 基本用法
 
 ```bash
-python main.py --text path/to/your/text.txt
+youtube-assistant --text path/to/your/text.txt
 ```
 
 ### 使用模板处理文本
 
 ```bash
 # 使用默认模板
-python main.py --text path/to/your/text.txt
+youtube-assistant --text path/to/your/text.txt
 
 # 使用作家写作模板
-python main.py --text path/to/your/text.txt --template 作家写作
+youtube-assistant --text path/to/your/text.txt --template 作家写作
 
 # 使用自定义模板
-python main.py --text path/to/your/text.txt --template your_template_name
+youtube-assistant --text path/to/your/text.txt --template your_template_name
 ```
 
 ### 指定输出目录
@@ -291,17 +306,17 @@ python main.py --text path/to/your/text.txt --summary-dir my_articles
 **Windows (batch.bat)**
 ```batch
 @echo off
-python main.py --text texts/file1.txt --template 作家写作
-python main.py --text texts/file2.txt --template 作家写作
-python main.py --text texts/file3.txt --template 作家写作
+youtube-assistant --text texts/file1.txt --template 作家写作
+youtube-assistant --text texts/file2.txt --template 作家写作
+youtube-assistant --text texts/file3.txt --template 作家写作
 ```
 
 **Linux/Mac (batch.sh)**
 ```bash
 #!/bin/bash
-python main.py --text texts/file1.txt --template 作家写作
-python main.py --text texts/file2.txt --template 作家写作
-python main.py --text texts/file3.txt --template 作家写作
+youtube-assistant --text texts/file1.txt --template 作家写作
+youtube-assistant --text texts/file2.txt --template 作家写作
+youtube-assistant --text texts/file3.txt --template 作家写作
 ```
 
 ## 🔧 技术实现细节
@@ -384,12 +399,13 @@ python main.py --text texts/file3.txt --template 作家写作
 
 ### 代码文件
 
-- `main.py`: 主程序文件
-- `config.py`: 配置模块
-- `utils/`: 工具模块目录
-  - `__init__.py`: 包初始化文件
-  - `common.py`: 通用工具函数模块
-  - `composite.py`: 组合模型处理模块，用于处理不同API的组合调用
+- `youtube_assistant/`: 主包目录
+  - `main.py`: 主程序文件
+  - `config.py`: 配置模块
+  - `utils/`: 工具模块目录
+    - `__init__.py`: 包初始化文件
+    - `common.py`: 通用工具函数模块
+    - `composite.py`: 组合模型处理模块，用于处理不同API的组合调用
   - `downloader.py`: 下载器模块
   - `subtitle_extractor.py`: 字幕提取器模块
   - `translator.py`: 翻译器模块
@@ -440,6 +456,8 @@ python main.py --text texts/file3.txt --template 作家写作
 ## 🔄 当前版本
 
 ### v2.1.0 (2025-04-06)
+- 发布到PyPI，支持通过pip安装：`pip install youtube-assistant`
+- 添加命令行入口点，安装后可直接使用`youtube-assistant`命令
 - 引入 TextSummaryComposite 类，优化 API 调用处理
 - 移除 anthropic 库依赖，改用 requests 库直接调用 Claude API
 - 增强错误处理机制，提高程序稳定性
@@ -469,26 +487,26 @@ MIT License
 #### 处理单个 YouTube 视频并生成字幕
 
 ```bash
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id
 ```
 
 #### 处理本地视频文件
 
 ```bash
-python main.py --video path/to/your/video.mp4
+youtube-assistant --video path/to/your/video.mp4
 ```
 
 #### 处理本地音频文件
 
 ```bash
-python main.py --audio path/to/your/audio.mp3
+youtube-assistant --audio path/to/your/audio.mp3
 ```
 
 #### 批量处理多个 YouTube 视频
 
 ```bash
 # 创建一个文本文件，每行包含一个 YouTube 链接
-python main.py --batch path/to/your/urls.txt
+youtube-assistant --batch path/to/your/urls.txt
 ```
 
 ### 高级选项
@@ -496,26 +514,26 @@ python main.py --batch path/to/your/urls.txt
 #### 下载完整视频并嵌入字幕
 
 ```bash
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --download-video
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --download-video
 ```
 
 #### 选择 Whisper 模型大小
 
 ```bash
 # 可选模型大小: tiny, base, small, medium, large
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --model-size medium
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --model-size medium
 ```
 
 #### 禁用字幕翻译
 
 ```bash
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --no-translation
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --no-translation
 ```
 
 #### 禁用字幕嵌入
 
 ```bash
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --download-video --no-embed
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --download-video --no-embed
 ```
 
 ### 字幕格式说明
@@ -534,7 +552,7 @@ python main.py --youtube https://www.youtube.com/watch?v=your_video_id --downloa
 
 ```bash
 # 下载视频并嵌入字幕
-python main.py --youtube https://www.youtube.com/watch?v=your_video_id --download-video
+youtube-assistant --youtube https://www.youtube.com/watch?v=your_video_id --download-video
 ```
 
 嵌入字幕的视频保存在 `videos_with_subtitles` 目录下。

@@ -10,6 +10,9 @@ ENV/
 .venv/
 .python-version
 
+# 用户配置目录
+~/.youtube_assistant/
+
 # Python缓存文件
 __pycache__/
 *.py[cod]
@@ -68,6 +71,29 @@ desktop.ini
 # Pipfile.lock
 # poetry.lock
 
+# PyPI发布相关文件
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
 # 测试覆盖率报告
 .coverage
 htmlcov/
@@ -76,3 +102,16 @@ htmlcov/
 .hypothesis/
 .pytest_cache/
 cover/
+
+# 本地开发文件
+*.bak
+*.swp
+*.swo
+*~
+.*.sw[a-p]
+
+# 其他可能的临时文件
+.cache/
+.history/
+.temp/
+.tmp/
