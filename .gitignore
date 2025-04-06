@@ -1,0 +1,78 @@
+# 环境变量文件
+.env
+.env.*
+!.env.example
+
+# Python虚拟环境
+venv/
+env/
+ENV/
+.venv/
+.python-version
+
+# Python缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 下载的媒体文件
+downloads/
+videos/
+extracted_audio/
+subtitles/
+transcripts/
+summaries/
+videos_with_subtitles/
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+temp/
+tmp/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE配置文件
+.idea/
+.vscode/
+*.swp
+*.swo
+.project
+.pydevproject
+.settings/
+
+# 依赖锁定文件（可选，取决于您的项目需求）
+# Pipfile.lock
+# poetry.lock
+
+# 测试覆盖率报告
+.coverage
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.pytest_cache/
+cover/
