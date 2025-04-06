@@ -11,8 +11,8 @@ import subprocess
 import sys
 from datetime import datetime
 
-from utils import sanitize_filename, ensure_directory, check_ffmpeg, find_ffmpeg_path
-import config
+from youtube_assistant.utils.common import sanitize_filename, ensure_directory, check_ffmpeg, find_ffmpeg_path
+from youtube_assistant import config
 
 def download_youtube_video(youtube_url, output_dir=None, audio_only=True):
     """

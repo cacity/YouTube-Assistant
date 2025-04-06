@@ -11,8 +11,8 @@ from pathlib import Path
 import json
 import subprocess
 
-from utils import format_timestamp, ensure_directory, sanitize_filename, find_ffmpeg_path, check_ffmpeg
-import config
+from youtube_assistant.utils.common import format_timestamp, ensure_directory, sanitize_filename, find_ffmpeg_path, check_ffmpeg
+from youtube_assistant import config
 
 def transcribe_audio_to_text(audio_path, output_dir=None, model_size="medium"):
     """

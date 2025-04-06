@@ -10,7 +10,7 @@ import os
 import json
 from openai import OpenAI
 
-import config
+from youtube_assistant import config
 
 def translate_text(text, target_language='zh-CN', source_language='auto', service='google'):
     """

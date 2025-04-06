@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "youtube-assistant"
-version = "2.1.0"
+version = "2.1.1"
 description = "一个功能强大的模块化工具，可以从YouTube视频中提取音频，转录为文本，生成字幕，翻译字幕，并使用AI生成高质量文章摘要"
 readme = "README.md"
 requires-python = ">=3.7"

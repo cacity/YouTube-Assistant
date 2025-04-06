@@ -10,8 +10,8 @@ import time
 from openai import OpenAI
 import requests
 
-import config
-from utils.common import ensure_directory, save_text_to_file
+from youtube_assistant import config
+from youtube_assistant.utils.common import ensure_directory, save_text_to_file
 
 def generate_summary(text, model=None, api_key=None, base_url=None, stream=True, template=None):
     """
