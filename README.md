@@ -1,4 +1,4 @@
-# YouTube Transcription Tool 📺 ➡️ 📝
+# YouTube Assistant 📺 ➡️ 📝
 
 ![Python Version](https://img.shields.io/badge/Python-3.7%2B-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
@@ -376,31 +376,9 @@ python main.py --text texts/file3.txt --template 作家写作
 
 ### 模块交互
 
-```
-+-------------+      +-------------------+      +------------------+
-| config.py   |<-----| downloader.py    |----->| utils.py         |
-+-------------+      +-------------------+      +------------------+
-      ^                      |                          ^
-      |                      v                          |
-      |              +-------------------+              |
-      +------------->| subtitle_extractor.py |<---------+
-      |              +-------------------+              |
-      |                      |                          |
-      |                      v                          |
-      |              +-------------------+              |
-      +------------->| translator.py     |<---------+  |
-      |              +-------------------+          |  |
-      |                      |                      |  |
-      |                      v                      |  |
-      |              +-------------------+          |  |
-      +------------->| summarizer.py     |<---------+  |
-      |              +-------------------+          |  |
-      |                      |                      |  |
-      v                      v                      v  v
-+-----------------------------------------------------------+
-|                         main.py                            |
-+-----------------------------------------------------------+
-```
+![](https://raw.githubusercontent.com/cacity/py_test/master/test/ChatGPT Image 2025年4月6日 12_20_21.png)
+
+
 
 ## 📁 目录结构
 
